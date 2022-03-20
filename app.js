@@ -1,16 +1,32 @@
 const express = require("express");
 const app = express();
 const multer=require('multer')
-const userroute=require('./routes/user.route')
-const postroute=require("./routes/post.route")
+const mongoose=require("mongoose");
+const path =require('path')
+const userroute=require('./routes/user.route');
+const secret=require('./config.json')
 
-app.set('view engine','ejs')
+// const postroute=require("./routes/post.route")
 
-app.use(multer)
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+// // app.use(multer)
 app.use(userroute)
-app.use(postroute)
+// app.use(postroute)
 
-mongoose.connect("mongodb://localhost:27017/mela", {
+app.set('view engine', 'ejs');
+
+// use res.render to load up an ejs view file
+app.use(express.static(path.join(__dirname,'public')))
+// index page
+app.get('/login', function(req, res) {
+  res.render('login');
+});
+app.get('/signup', function(req, res) {
+  res.render('signup');
+});
+
+mongoose.connect("mongodb+srv://maruf:maruf@cluster0.l2ygl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {
   useNewUrlParser: true
 })
 mongoose.connection.on("error", err => {
@@ -20,6 +36,6 @@ mongoose.connection.on("connected", (err, res) => {
   console.log("mongoose connected")
 })
 
-app.listen(8000, function () {
-  console.log("Listening on port 8000!");
+app.listen(secret.PORT, function () {
+  console.log(`Listening on port ${secret.PORT}!`);
 });

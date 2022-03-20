@@ -4,7 +4,7 @@
   "description": "y",
   "main": "y",
   "scripts": {
-    "start":"nodemon app.js",
+    "start": "nodemon app.js",
     "test": "y"
   },
   "repository": {
@@ -17,7 +17,12 @@
   "author": "y",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "ejs": "^3.1.6",
     "express": "^4.17.3",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.2.7",
+    "multer": "^1.4.4",
     "nodemon": "^2.0.15"
   }
 }

@@ -1,12 +1,14 @@
 const User = require("../models/user.model");
-const bcrypt = require("bcrypt")
+const bcrypt = require("bcryptjs")
 const jwt = require('jsonwebtoken');
 const secret=require('../config.json')
 
 //signup
-exports.signUp = async (req, res, next) => {
+exports.signUpUser = async(req, res, next) => {
   try {
-    const full_name=req.body.fullName
+    
+    console.log(req.body)
+    const full_name=req.body.fullname
     const username= req.body.username
     const password=req.body.password
 
@@ -38,16 +40,20 @@ exports.signUp = async (req, res, next) => {
     })
     await user.save()
     const token = jwt.sign({ sub: user._id, username: user.username },secret.SECRET);
-    return res.render('/home',{token:token});
+    console.log(token)
+    return res.redirect('/login');
   }
+  
   catch(error) {
-    next(error)
+    !!err.statusCode? err.statusCode : err.statusCode=500;
+    return res.redirect('/login',{message:err.message,status:false});
   }
 };
 
 //for log in
 exports.loginUser = async (req, res, next) => {
   try {
+    console.log(req.body)
     const username=req.body.username;
     const password = req.body.password
     if (!username || !password) {
@@ -74,7 +80,9 @@ exports.loginUser = async (req, res, next) => {
     return res.render('/home',{ token:token});
 }
   catch(error) {
-    next(error)
+    console.log("error")
+    !!error.statusCode? error.statusCode : error.statusCode=500;
+    return res.status(422).render('login',{message:error.message,status:false});
   }
 };
 
@@ -102,9 +110,9 @@ if(!!password)
   }
   updateinfo={$set:updateinfo}
   await User.findByIdAndUpdate(id,updateinfo)
-  return res.render('/account',{message:"information changed successfully"})
+  return res.redirect('/account',{message:"information changed successfully"})
   }
   catch(error) {
-    return res.render('/account',{message:"error, please try again"});
+    return res.redirect('/account',{message:"error, please try again"});
   }
 };

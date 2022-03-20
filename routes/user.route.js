@@ -1,14 +1,11 @@
 const express = require('express');
 const userauth = require("../middleware/auth.middleware")
-const { saveUser } = require('../controllers/user.controller');
-const { loginUser,updateUser } = require('../controllers/user.controller');
-const {loginErrorHandler} = require('../middleware/loginerrohandling.middleware')
-const router = express.Router();
+const {loginUser,signUpUser,updateUser} = require('../controllers/user.controller')
 
-router.post('/register', saveUser,loginErrorHandler)
-router.post('/login', loginUser,loginErrorHandler)
-router.post('/updateuser',userauth,updateUser,loginErrorHandler)
-
+const router=express.Router()
+router.post('/login',loginUser)
+router.post('/signup',signUpUser)
+router.post('/updateuser',userauth,updateUser)
 
 module.exports = router
 

@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const config = process.env;
+const config = require("../config.json");
 
 const authenticateJWT = (req, res, next) => {
   console.log(req.headers)
@@ -7,9 +7,10 @@ const authenticateJWT = (req, res, next) => {
   if (authHeader) {
     const token = authHeader.split(' ')[1];
     // const token = authHeader
-    jwt.verify(token, "marufsecret", (err, user) => {
+    console.log("midleware")
+    jwt.verify(token, config.SECRET, (err, user) => {
       if (err) {
-        return res.status(403).send({ msg: "something wrong" });
+        return res.stattus.render('/login');
       }
       req.user = user;
       console.log(user)
@@ -17,7 +18,7 @@ const authenticateJWT = (req, res, next) => {
     });
   }
   else {
-    res.status(401).send({ message: "no token exist" });
+    res.render('/login');
   }
 
 };

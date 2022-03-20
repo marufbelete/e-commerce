@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log-in</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link rel="stylesheet" href="/style/signup.css">
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+
+            <div class="content_item welcome_title">
+                <h1>Welcome To Shoping Center</h1>
+                <h1>Sign-Up</h1>
+            </div>
+         <form action="/signup" method="post">
+            <div class="content_item username">
+                <input type="text" name="fullname" autocomplete="off" placeholder="&#xf2bc &nbsp&nbsp Full Name" style="font-family:Arial, FontAwesome"/>
+            </div>
+            <div class="content_item username">
+                <input type="text" name="username" autocomplete="off" placeholder="&#xf007 &nbsp&nbsp User-Name" style="font-family:Arial, FontAwesome"/>
+            </div>
+            <div class="content_item password">
+            <input type="password" name="password" autocomplete="off" placeholder="&#xf084 &nbsp&nbsp Password" style="font-family:Arial, FontAwesome"/>
+            </div>
+            <div class="content_item password">
+                <input type="password" name="confirmpassword" autocomplete="off" placeholder="&#xf2d2 &nbsp&nbsp Confirm Password" style="font-family:Arial, FontAwesome"/>
+                </div>
+            <div class="content_item">
+                <div class="sign_up"><a href="/login">Log-in</a></div>
+            <button class="login_button">Sign-up</button>
+        </div>
+    </form>
+        </div>
+    </div>
+</body>
+</html>
