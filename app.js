@@ -6,8 +6,6 @@ const path =require('path')
 const userroute=require('./routes/user.route');
 const secret=require('./config.json')
 
-// const postroute=require("./routes/post.route")
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 // // app.use(multer)
@@ -24,6 +22,12 @@ app.get('/login', function(req, res) {
 });
 app.get('/signup', function(req, res) {
   res.render('signup');
+});
+app.get('/home', function(req, res) {
+  res.render('home');
+});
+app.get('/', function(req, res) {
+  res.redirect('/login');
 });
 
 mongoose.connect("mongodb+srv://maruf:maruf@cluster0.l2ygl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {

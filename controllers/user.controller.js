@@ -41,12 +41,12 @@ exports.signUpUser = async(req, res, next) => {
     await user.save()
     const token = jwt.sign({ sub: user._id, username: user.username },secret.SECRET);
     console.log(token)
-    return res.redirect('/login');
+    return res.redirect('login');
   }
   
   catch(error) {
-    !!err.statusCode? err.statusCode : err.statusCode=500;
-    return res.redirect('/login',{message:err.message,status:false});
+    !!error.statusCode? error.statusCode : error.statusCode=500;
+    return res.render('login',{message:error.message,status:false});
   }
 };
 
@@ -77,7 +77,8 @@ exports.loginUser = async (req, res, next) => {
       throw error;
     }
     const token = jwt.sign({ sub: user._id, username: user.username }, secret.SECRET);
-    return res.render('/home',{ token:token});
+    console.log(token)
+    return res.redirect('home');
 }
   catch(error) {
     console.log("error")
@@ -110,9 +111,9 @@ if(!!password)
   }
   updateinfo={$set:updateinfo}
   await User.findByIdAndUpdate(id,updateinfo)
-  return res.redirect('/account',{message:"information changed successfully"})
+  return res.render('account',{message:"information changed successfully"})
   }
   catch(error) {
-    return res.redirect('/account',{message:"error, please try again"});
+    return res.render('account',{message:"error, please try again"});
   }
 };

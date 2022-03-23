@@ -1,0 +1,16 @@
+.footer
+{
+    display: flex;
+    height: 200px;
+    background-color: #221f1fd7;
+    margin-top: 100px;
+    color: white;
+}
+.left_footer{
+    flex: 2;
+    background-color: aliceblue;
+}
+.right_footer{
+    flex: 1;
+    background-color: aqua;
+}
