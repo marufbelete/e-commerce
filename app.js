@@ -6,14 +6,13 @@ const path =require('path')
 const userroute=require('./routes/user.route');
 const secret=require('./config.json')
 
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-// // app.use(multer)
+// app.use(multer)
 app.use(userroute)
 // app.use(postroute)
-
 app.set('view engine', 'ejs');
-
 // use res.render to load up an ejs view file
 app.use(express.static(path.join(__dirname,'public')))
 // index page
@@ -29,6 +28,13 @@ app.get('/home', function(req, res) {
 app.get('/', function(req, res) {
   res.redirect('/login');
 });
+app.get('/footer',function(req,res){
+  res.render('includes/footer')
+})
+app.get('/header',function(req,res){
+  res.render('includes/header')
+})
+
 
 mongoose.connect("mongodb+srv://maruf:maruf@cluster0.l2ygl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {
   useNewUrlParser: true
