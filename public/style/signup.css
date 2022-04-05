@@ -13,11 +13,10 @@ align-items:center;
 height: 100vh;
 margin: auto;
 background-color: #03616424;
-
 }
 
 .content{
-  width: 45rem;
+  flex: 0.6;
   height: 35rem;
   background-color: #19354cf6;
   border-radius: 4px;
@@ -25,15 +24,14 @@ background-color: #03616424;
 .welcome_title{
     color: #ccc8ff;
 }
-h1{
-    margin: 4px;
+.h1case{
+  margin: 4px;
+  font-size: 1.5rem;
 }
 .sign_up
 {
-position: absolute;
-top:-1.6rem;
-left:28rem;
-
+margin-left: 15rem;
+margin-top: -1rem;
 }
 .sign_up a{
     text-decoration: none;
@@ -52,7 +50,7 @@ left:28rem;
     margin-top: 2rem;
 }
 .content_item input{
-    width: 300px;
+    width: 40%;
     height: 40px;
     border-radius:20px;
     border:solid 0.2px #0000ff59;
@@ -79,32 +77,65 @@ left:28rem;
     cursor:pointer;
     color:white;
   }
-
+  @media(max-width:960px)
+  {
+    .content{
+       flex: 0.7;
+        height: 29rem;
+        border-radius: 4px;
+      }
+      .h1case{
+        margin: 4px;
+        font-size: 1.3rem;
+    }
+    }
   @media(max-width:760px)
   {
     .content{
-        width: 35rem;
+        flex: 0.8;
         height: 35rem;
         border-radius: 4px;
       }
-.sign_up
-{
-position: absolute;
-top:-1.6rem;
-left:22rem;
-}
+      .h1case{
+        margin: 4px;
+        font-size: 1.3rem;
+    }
   }
   @media(max-width:572px)
   {
     .content{
-        width: 25rem;
+        flex: 0.9;
         height: 35rem;
         border-radius: 4px;
       }
-.sign_up
-{
-position: absolute;
-top:-1.6rem;
-left:16rem;
-}
+      .h1case{
+        margin: 4px;
+        font-size: 1rem;
+    }
+  }
+  @media(max-width:482px)
+  {
+    
+    .content{
+        flex: 0.9;
+        height: 34rem;
+        border-radius: 4px;
+      }
+      .h1case{
+        margin: 4px;
+        font-size: 0.98rem;
+    }
+    .content_item input{
+      width: 220px;
+      height: 40px;
+      border-radius:20px;
+      border:solid 0.2px #0000ff59;
+      outline: none;
+      text-align: center;
+  }
+  .sign_up{
+    margin-left: 12rem;
+    margin-top: -1rem;
+    }
+
   }

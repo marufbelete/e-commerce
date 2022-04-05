@@ -18,7 +18,7 @@
     
 }
 .left_footer_item{
-margin-right: 70px;
+margin-right: 85px;
 
 }
 .left_footer_cat{
@@ -60,7 +60,7 @@ margin-right: 70px;
 .email_submit{
     display: inline-block;
     background-color:rgb(66, 48, 2);
-     padding: 11.7px 10px;
+    padding: 11.7px 10px;
   
 }
 .email_submit:hover{
@@ -86,4 +86,28 @@ margin-left: 10px;
 .right_footer_social li a:hover{
     color:rgb(26, 145, 45);
 }
+@media(max-width:782px){
+    .left_footer{
+        flex: 2;
+        margin:auto;
+    }
+    .right_footer{
+        margin:auto;
+    }
+    .left_footer_item{
+        margin-right: 65px;
+        
+        }
+}
 
+@media(max-width:672px){
+.footer
+{
+    display: flex;
+    flex-direction: column;
+    background-color: #221f1fd7;
+    align-items: center;
+    justify-content: center;
+    height: 420px;
+}
+}
