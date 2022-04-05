@@ -5,20 +5,18 @@ body,html{
     box-sizing: border-box;
 }
 .container{
+display:flex;
 background-image: url("../images/background.jpg");
 background-size: cover;
-display:flex;
 justify-content:center;
 align-items:center;
 height: 100vh;
 margin: auto;
 background-color: #03616424;
-
 }
-
 .content{
   width: 45rem;
-  height: 35rem;
+  height: 27rem;
   background-color: #19354cf6;
   border-radius: 4px;
 }
@@ -33,7 +31,6 @@ h1{
 position: absolute;
 top:-1.6rem;
 left:28rem;
-
 }
 .sign_up a{
     text-decoration: none;
@@ -58,6 +55,9 @@ left:28rem;
     border:solid 0.2px #0000ff59;
     outline: none;
     text-align: center;
+}
+.errmessage{
+  color:red;
 }
 
 .login_button{
@@ -84,7 +84,7 @@ left:28rem;
   {
     .content{
         width: 35rem;
-        height: 35rem;
+        height: 27rem;
         border-radius: 4px;
       }
 .sign_up
@@ -98,7 +98,7 @@ left:22rem;
   {
     .content{
         width: 25rem;
-        height: 35rem;
+        height: 27rem;
         border-radius: 4px;
       }
 .sign_up

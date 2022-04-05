@@ -41,12 +41,12 @@ exports.signUpUser = async(req, res, next) => {
     await user.save()
     const token = jwt.sign({ sub: user._id, username: user.username },secret.SECRET);
     console.log(token)
-    return res.redirect('login');
+    return res.redirect('signup');
   }
   
   catch(error) {
     !!error.statusCode? error.statusCode : error.statusCode=500;
-    return res.render('login',{message:error.message,status:false});
+    return res.render('signup',{message:error.message,status:false});
   }
 };
 

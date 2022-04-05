@@ -12,9 +12,7 @@ const newcatgory=new CatagoryPost({
 catch{
 
    return res.render('/catagory',{message:"something went wrong"})
-
 }
-
 }
 
 exports.editCatagory= async(res,req,next)=>{
