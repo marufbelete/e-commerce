@@ -12,10 +12,21 @@
     <div class="container">
         <div class="content">
     <form action="/login" method="post">
+        
 
             <div class="content_item welcome_title">
                 <div class="h1case">Welcome To Shoping Center</div>
                 <div class="h1case">Log-In</div>
+                <div class="social_media">
+                    <a href="/api/auth/facebook" class="facebook_but">
+                      <i class="fa fa-facebook fa-lg"></i>
+                      Facebook
+                    </a>
+                    <a href="/api/auth/google" class="google_but">
+                      <i class="fa fa-google fa-lg"></i>
+                      Google
+                    </a>
+                    </div>
                 <h4 class="errmessage"><%= typeof status!=='undefined'? message:'' %></h4>
             </div>
 
